@@ -13,13 +13,14 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes,withComponentInputBinding()), provideClientHydration(withEventReplay()),
-     provideAnimationsAsync(),
-        providePrimeNG({
-            theme: {
-                preset: Aura
-            }
-        }),
-        provideHttpClient(withInterceptors([authInterceptor])),
+    provideRouter(routes, withComponentInputBinding()), provideClientHydration(withEventReplay()),
+    provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: Aura  // Or just remove theme if you use CSS theme instead
+      }
+    }),
+
+    provideHttpClient(withInterceptors([authInterceptor])),
   ]
 };
