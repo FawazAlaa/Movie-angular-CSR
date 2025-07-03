@@ -1,0 +1,114 @@
+<!-- Carousel -->
+<section class="carousel pt-4">
+  <div class="carousel-container">
+    <div class="text-content text-center">
+      <h1 class="mb-4">Welcome to FawazFlex</h1>
+      <h2>What's New?</h2>
+    </div>
+
+    <p-carousel [value]="carouselMovies()" [numVisible]="5" [numScroll]="1" [autoplayInterval]="4000">
+      <ng-template pTemplate="item" let-movie>
+        <div class="movie-card pr-3">
+          <img [src]="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="{{ movie.title }}" />
+          <div class="movie-title">{{ movie.title }}</div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</section>
+
+<!-- Toggle buttons -->
+<section class="text-center py-3">
+  <button pButton type="button" label="Movies"
+          class="p-button-rounded mr-3"
+          [class.p-button-success]="selectedType === 'movies'"
+          [class.p-button-outlined]="selectedType !== 'movies'"
+          (click)="selectedType = 'movies'"></button>
+
+  <button pButton type="button" label="Shows"
+          class="p-button-rounded"
+          [class.p-button-success]="selectedType === 'shows'"
+          [class.p-button-outlined]="selectedType !== 'shows'"
+          (click)="selectedType = 'shows'"></button>
+</section>
+
+<!-- Movies & Shows -->
+<section class="movies-and-shows mt-3">
+
+  @if (selectedType === 'movies') {
+
+    <!-- Movie Category Buttons -->
+   <section class="text-center mb-3">
+  <button pButton type="button" label="Now Playing"
+          class="mr-2"
+          [class.p-button-info]="selectedCategory === 'now_playing'"
+          [class.p-button-outlined]="selectedCategory !== 'now_playing'"
+          (click)="onCategoryChange('now_playing')"></button>
+
+  <button pButton type="button" label="Popular"
+          class="mr-2"
+          [class.p-button-info]="selectedCategory === 'popular'"
+          [class.p-button-outlined]="selectedCategory !== 'popular'"
+          (click)="onCategoryChange('popular')"></button>
+
+  <button pButton type="button" label="Top Rated"
+          class="mr-2"
+          [class.p-button-info]="selectedCategory === 'top_rated'"
+          [class.p-button-outlined]="selectedCategory !== 'top_rated'"
+          (click)="onCategoryChange('top_rated')"></button>
+
+  <button pButton type="button" label="Upcoming"
+          [class.p-button-info]="selectedCategory === 'upcoming'"
+          [class.p-button-outlined]="selectedCategory !== 'upcoming'"
+          (click)="onCategoryChange('upcoming')"></button>
+</section>
+
+    <!-- Movie List -->
+    <div class="grid">
+      @for (movie of movies(); track movie.id) {
+        <div class="col-6 sm:col-4 md:col-3 lg:col-2">
+          <app-movies-movie [movieShow]="movie"></app-movies-movie>
+        </div>
+      }
+    </div>
+
+  } @else if (selectedType === 'shows') {
+
+    <!-- Show Category Buttons -->
+<section class="text-center mb-3">
+  <button pButton type="button" label="Airing Today"
+          class="mr-2"
+          [class.p-button-info]="showsCategory === 'airing_today'"
+          [class.p-button-outlined]="showsCategory !== 'airing_today'"
+          (click)="onshowCategoryChange('airing_today')"></button>
+
+  <button pButton type="button" label="On The Air"
+          class="mr-2"
+          [class.p-button-info]="showsCategory === 'on_the_air'"
+          [class.p-button-outlined]="showsCategory !== 'on_the_air'"
+          (click)="onshowCategoryChange('on_the_air')"></button>
+
+  <button pButton type="button" label="Popular"
+          class="mr-2"
+          [class.p-button-info]="showsCategory === 'popular'"
+          [class.p-button-outlined]="showsCategory !== 'popular'"
+          (click)="onshowCategoryChange('popular')"></button>
+
+  <button pButton type="button" label="Top Rated"
+          [class.p-button-info]="showsCategory === 'top_rated'"
+          [class.p-button-outlined]="showsCategory !== 'top_rated'"
+          (click)="onshowCategoryChange('top_rated')"></button>
+</section>
+    <!-- Show List -->
+    <div class="grid">
+      @for (show of shows(); track show.id) {
+        <div class="col-6 sm:col-4 md:col-3 lg:col-2">
+          <app-movies-shows [seriesShow]="show"></app-movies-shows>
+        </div>
+      }
+    </div>
+
+  }
+</section>
+
+

@@ -1,0 +1,16 @@
+<nav  [ngClass]="{ 'navbar': true, 'scrolled': isScrolled }" class="navbar-container">
+    <div class="navbar-left">
+        <a href="#">
+            <img src="My-logo.svg" alt="Logo" class="logo">
+        </a>
+
+    </div>
+
+    <div class="navbar-right">
+        <p-dropdown [options]="languages" [(ngModel)]="selectedLanguage" optionLabel="label"
+            (onChange)="changeLanguage($event.value)" [style]="{'width':'120px'}">
+        </p-dropdown>
+
+        <button pButton label="Watchlist" class="p-button-text" (click)="openWatchlist()"></button>
+    </div>
+</nav>

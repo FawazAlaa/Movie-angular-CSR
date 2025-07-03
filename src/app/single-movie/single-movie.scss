@@ -1,0 +1,92 @@
+.movie-detail-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 8px;
+
+  .movie-poster {
+  width: 100%;
+  max-width: 320px;   // ✅ prevent overly wide images
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+  .movie-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    h2 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+
+    .text-muted {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .pi-heart-fill {
+      color: #facc15; // yellow
+      font-size: 1.5rem;
+    }
+  }
+
+  .movie-overview {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .tags {
+    margin-top: 1rem;
+
+    .p-tag {
+      font-size: 0.75rem;
+      background-color: #facc15;
+      color: #000;
+      border-radius: 12px;
+      padding: 0.2rem 0.6rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .info-grid {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+
+    p {
+      margin: 0.3rem 0;
+    }
+  }
+
+.logos {
+  background: rgba(255, 255, 255, 0.899);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .company-logo {
+    height: 40px;
+    max-width: 120px;
+    object-fit: contain;
+    filter: brightness(1.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .company-name {
+    font-size: 0.9rem;
+    color:black;
+    margin-right: 1rem;
+    white-space: nowrap;
+  }
+}
+}

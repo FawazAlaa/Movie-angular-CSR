@@ -1,0 +1,80 @@
+<div class="movie-detail-container p-4">
+    <div class="p-grid p-align-start p-justify-center">
+        <!-- Movie Poster -->
+        <div class="p-col-12 p-md-4 text-center">
+            <img [src]="`https://image.tmdb.org/t/p/w500/${singleMovie().poster_path}`" alt="Black Widow"
+                class="movie-poster" />
+        </div>
+        <!-- <h2>{{movieShow()?.title }}</h2>
+            <p class="overview">{{ movieShow()?.overview }}</p>
+            <p><strong>Rating:</strong> {{ movieShow()?.vote_average }} / 10</p>
+            <p><strong>Reviews:</strong> {{ movieShow()?.vote_count }}</p>
+            <p><strong>Release:</strong> {{ movieShow()?.release_date }}</p> -->
+
+        <!-- Movie Info -->
+        <div class="p-col-12 p-md-8">
+            <div class="movie-header flex justify-content-between align-items-start">
+                <div>
+                    <h2 class="m-0">{{singleMovie().title}}</h2>
+                    <p class="text-muted text-sm"><strong>Release Date: </strong>{{singleMovie().release_date}}</p>
+                    <!-- Rating -->
+                    <div class="flex align-items-center gap-2 mb-2">
+
+                    </div>
+                </div>
+                <button><i class="pi pi-heart-fill text-yellow-500 text-xl"></i></button>
+            </div>
+
+            <!-- Overview -->
+            <p class="movie-overview mt-2">
+                {{singleMovie().overview}}
+            </p>
+
+            <!-- Tags -->
+            <div class="tags flex gap-2 mt-3">
+                @for (genre of singleMovie().genres; track genre.id) {
+                <span class="p-tag p-tag-rounded p-tag-warning">{{ genre.name }}</span>
+                }
+            </div>
+
+            <!-- Info Row -->
+            <div class="info-grid mt-4">
+                <p><strong>Duration:</strong> {{singleMovie().runtime}} min</p>
+
+                @if (singleMovie().original_language==='en') {
+                <p><strong>Original Language:</strong> English</p>
+                }
+                @else if (singleMovie().original_language==='zh') {
+                <p><strong>Original Language:</strong> Chinese</p>
+                }
+
+                @else if (singleMovie().original_language==='fr') {
+                <p><strong>Original Language:</strong> French</p>
+                }
+                @else if (singleMovie().original_language==='es') {
+                <p><strong>Original Language:</strong> Spanish</p>
+                }
+                @else if (singleMovie().original_language==='ja') {
+                <p><strong>Original Language:</strong> Japanese</p>
+                }
+                @else if (singleMovie().original_language==='ko') {
+                <p><strong>Original Language:</strong> Korean</p>
+                }
+
+            </div>
+
+            <!-- Logos + Button -->
+            <div class="logos flex align-items-center gap-3 mt-3 flex-wrap w-100">
+                @for (company of singleMovie().production_companies; track company.id) {
+                @if (company.logo_path === null) {
+                <span class="company-name text-muted">{{ company.name }}</span>
+                } @else {
+                <img [src]="'https://image.tmdb.org/t/p/w200/' + company.logo_path" [alt]="company.name"
+                    class="company-logo" />
+                }
+                }
+
+                <a pButton icon="pi pi-globe" label="Website" class="p-button-sm p-button-outlined"></a>
+            </div>
+        </div>
+    </div>

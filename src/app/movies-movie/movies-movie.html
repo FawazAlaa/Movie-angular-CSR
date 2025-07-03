@@ -1,0 +1,19 @@
+<p-card class="movie-card-container">
+    <!-- Poster Image -->
+    <div class="poster-wrapper">
+        <a [routerLink]="['/single-movie', movieShow()?.id]">
+            <img class="poster-img" [src]="'https://image.tmdb.org/t/p/w500/' + movieShow()?.poster_path"
+                alt="{{ movieShow()?.title }}" loading="lazy" />
+        </a>
+
+
+        <!-- Hover Overlay -->
+        <div class="overlay">
+            <h2>{{movieShow()?.title }}</h2>
+            <p class="overview">{{ movieShow()?.overview }}</p>
+            <p><strong>Rating:</strong> {{ movieShow()?.vote_average }} / 10</p>
+            <p><strong>Reviews:</strong> {{ movieShow()?.vote_count }}</p>
+            <p><strong>Release:</strong> {{ movieShow()?.release_date }}</p>
+        </div>
+    </div>
+</p-card>
