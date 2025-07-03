@@ -5,11 +5,12 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MenuItem } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
 import { HostListener } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-navbar',
-  imports: [ButtonModule, CommonModule, DropdownModule, FormsModule,],
+  imports: [ButtonModule, CommonModule, DropdownModule, FormsModule,RouterModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss'
 })
@@ -38,9 +39,6 @@ export class Navbar {
     // Insert i18n logic or locale change here
   }
 
-  openWatchlist() {
-    console.log('Watchlist clicked');
-    // Navigate or show modal
-  }
+
 
 }

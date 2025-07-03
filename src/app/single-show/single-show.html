@@ -15,8 +15,11 @@
         <div class="p-col-12 p-md-8">
             <div class="movie-header flex justify-content-between align-items-start">
                 <div>
-                    <h2 class="m-0">{{singleShow().title}}</h2>
-                    <p class="text-muted text-sm"><strong>Release Date: </strong>{{singleShow().release_date}}</p>
+                    <h2 class="m-0">{{singleShow().name}}</h2>
+                    <p class="text-muted text-sm"><strong> First episode Release Date:
+                        </strong>{{singleShow().first_air_date}}</p>
+                    <p class="text-muted text-sm"><strong> Last episode Release Date:
+                        </strong>{{singleShow().last_air_date}}</p>
                     <!-- Rating -->
                     <div class="flex align-items-center gap-2 mb-2">
 
@@ -31,50 +34,62 @@
             </p>
 
             <!-- Tags -->
-            <div class="tags flex gap-2 mt-3">
+            <div class="tags flex gap-2 mt-4">
                 @for (genre of singleShow().genres; track genre.id) {
                 <span class="p-tag p-tag-rounded p-tag-warning">{{ genre.name }}</span>
                 }
             </div>
 
             <!-- Info Row -->
-            <div class="info-grid mt-4">
-                <p><strong>Duration:</strong> {{singleShow().runtime}} min</p>
-
-                @if (singleShow().original_language==='en') {
-                <p><strong>Original Language:</strong> English</p>
+            <div class="duration flex flex-wrap items-center gap-1 mt-3">
+                <span><strong>Episode Duration:</strong></span>
+                @for (time of singleShow().episode_run_time; track $index) {
+                <span>{{ time }} min</span>
+                @if (!$last) {
+                <span>/</span>
                 }
-                @else if (singleShow().original_language==='zh') {
-                <p><strong>Original Language:</strong> Chinese</p>
                 }
-
-                @else if (singleShow().original_language==='fr') {
-                <p><strong>Original Language:</strong> French</p>
-                }
-                @else if (singleShow().original_language==='es') {
-                <p><strong>Original Language:</strong> Spanish</p>
-                }
-                @else if (singleShow().original_language==='ja') {
-                <p><strong>Original Language:</strong> Japanese</p>
-                }
-                @else if (singleShow().original_language==='ko') {
-                <p><strong>Original Language:</strong> Korean</p>
-                }
-
+            </div>
+            <div class="episodes mt-3">
+                <p><strong>Number of Episodes:</strong> {{singleShow().number_of_episodes}}</p>
+                <p><strong>Number of Seasons:</strong> {{singleShow().number_of_seasons}}</p>
             </div>
 
-            <!-- Logos + Button -->
-            <div class="logos flex align-items-center gap-3 mt-3 flex-wrap w-100">
-                @for (company of singleShow().production_companies; track company.id) {
-                @if (company.logo_path === null) {
-                <span class="company-name text-muted">{{ company.name }}</span>
-                } @else {
-                <img [src]="'https://image.tmdb.org/t/p/w200/' + company.logo_path" [alt]="company.name"
-                    class="company-logo" />
-                }
-                }
 
-                <a pButton icon="pi pi-globe" label="Website" class="p-button-sm p-button-outlined"></a>
-            </div>
+            @if (singleShow().original_language==='en') {
+            <p><strong>Original Language:</strong> English</p>
+            }
+            @else if (singleShow().original_language==='zh') {
+            <p><strong>Original Language:</strong> Chinese</p>
+            }
+
+            @else if (singleShow().original_language==='fr') {
+            <p><strong>Original Language:</strong> French</p>
+            }
+            @else if (singleShow().original_language==='es') {
+            <p><strong>Original Language:</strong> Spanish</p>
+            }
+            @else if (singleShow().original_language==='ja') {
+            <p><strong>Original Language:</strong> Japanese</p>
+            }
+            @else if (singleShow().original_language==='ko') {
+            <p><strong>Original Language:</strong> Korean</p>
+            }
+
+        </div>
+
+        <!-- Logos + Button -->
+        <div class="logos flex align-items-center gap-3 mt-3 flex-wrap w-100">
+            @for (company of singleShow().production_companies; track company.id) {
+            @if (company.logo_path === null) {
+            <span class="company-name text-muted">{{ company.name }}</span>
+            } @else {
+            <img [src]="'https://image.tmdb.org/t/p/w200/' + company.logo_path" [alt]="company.name"
+                class="company-logo" />
+            }
+            }
+
+            <a pButton icon="pi pi-globe" label="Website" class="p-button-sm p-button-outlined"></a>
         </div>
     </div>
+</div>

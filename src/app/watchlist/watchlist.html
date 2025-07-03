@@ -1,0 +1,50 @@
+<section>
+    <h2 class="text-center">My Watchlist</h2>
+
+    <div class="watchlist-grid">
+        <h2 class="text-center">My Movies Watchlist</h2>
+        @for (movie of watchListItem.movieWatchList(); track movie.id) {
+        <div class="watchlist-card">
+            <img [src]="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" [alt]="movie.title" class="poster" />
+            <div class="card-content">
+                <h3>{{ movie.title }}</h3>
+                <p class="overview">{{ movie.overview }}</p>
+                <div class="flex justify-between items-center w-full">
+                    <p class="mr-4">{{ movie.release_date }}</p>
+
+                    <button type="button" class="heart-button"
+                        (click)="watchListItem.checkMovieWatchlist(movie) ? watchListItem.removeFromMovieWatchlist(movie) : watchListItem.addToMovieWatchlist(movie)">
+                        <i
+                            [ngClass]="watchListItem.checkMovieWatchlist(movie) ? 'pi pi-heart-fill text-yellow-500 text-xl' : 'pi pi-heart text-yellow-500 text-xl'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    <div class="divider-line"></div>
+
+       <div class="watchlist-grid">
+        <h2 class="text-center">My Shows Watchlist</h2>
+        @for (show of watchListItem.showWatchList(); track show.id) {
+        <div class="watchlist-card">
+            <img [src]="'https://image.tmdb.org/t/p/w500/'+show.poster_path" [alt]="show.name" class="poster" />
+            <div class="card-content">
+                <h3>{{ show.name }}</h3>
+                <p class="overview">{{ show.overview }}</p>
+                <div class="flex justify-between items-center w-full">
+                    <p class="mr-4">{{ show.first_air_date }}</p>
+                    <p class="mr-4">{{ show.last_air_date}}</p>
+
+                    <button type="button" class="heart-button"
+                        (click)="watchListItem.checkShowWatchlist(show) ? watchListItem.removeFromShowWatchlist(show) : watchListItem.addToShowWatchlist(show)">
+                        <i
+                            [ngClass]="watchListItem.checkShowWatchlist(show) ? 'pi pi-heart-fill text-yellow-500 text-xl' : 'pi pi-heart text-yellow-500 text-xl'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+</section>

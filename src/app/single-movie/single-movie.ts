@@ -27,10 +27,6 @@ export class SingleMovie {
       });
     }
   }
-get starRating(): number {
-  return Math.ceil(this.singleMovie().vote_average/ 2);
-}
-
 
   //   data$!:Subscription;
   //  private route = inject(ActivatedRoute);

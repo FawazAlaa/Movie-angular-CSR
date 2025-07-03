@@ -27,112 +27,120 @@ export interface MovieInterface {
     vote_count: number;
     runtime?: number; 
     production_companies?: ProductionCompany[];
-    
+    // For TV shows
+    first_air_date?: string;
+    episode_run_time?: number[];
+    last_air_date?: string;
+    number_of_episodes?: number;
+    number_of_seasons?: number;
+    name?: string;
 }
 
 // https://image.tmdb.org/t/p/w500/
 
 
-// production_companies
-// : 
-// Array(3)
-// 0
-// : 
-// {id: 4, logo_path: '/gz66EfNoYPqHTYI4q9UEN4CbHRc.png', name: 'Paramount Pictures', origin_country: 'US'}
-// 1
-// : 
-// {id: 82819, logo_path: '/gXfFl9pRPaoaq14jybEn1pHeldr.png', name: 'Skydance Media', origin_country: 'US'}
-// 2
-// : 
-// {id: 21777, logo_path: null, name: 'TC Productions', origin_country: 'US'}
 
+// ***************************************************
 
-
-
-
-
-
-// {adult: false, backdrop_path: '/3SkOJ7xyzn2okRZLlY6rs6Ohmtv.jpg', belongs_to_collection: null, budget: 0, genres: Array(2), …}
 // adult
 // : 
 // false
 // backdrop_path
 // : 
-// "/3SkOJ7xyzn2okRZLlY6rs6Ohmtv.jpg"
-// belongs_to_collection
+// "/6jGVOu5NvnmSKh28ByWAJrTOEH2.jpg"
+// created_by
 // : 
-// null
-// budget
+// [{…}]
+// episode_run_time
 // : 
-// 0
+// (2) [45, 41]
+// first_air_date
+// : 
+// "2014-02-17"
 // genres
 // : 
 // (2) [{…}, {…}]
 // homepage
 // : 
-// "https://watch.amazon.com/detail?gti=amzn1.dv.gti.cbb2a850-b50e-4e36-8268-18db32715267&territory=US&ref_=share_ios_movie&r=web"
+// "http://www.nbc.com/the-tonight-show"
 // id
 // : 
-// 1470736
-// imdb_id
+// 59941
+// in_production
 // : 
-// "tt36749443"
+// true
+// languages
+// : 
+// ['en']
+// last_air_date
+// : 
+// "2025-06-26"
+// last_episode_to_air
+// : 
+// {id: 6324211, name: 'Episode #12.133', overview: '', vote_average: 0, vote_count: 0, …}
+// name
+// : 
+// "The Tonight Show Starring Jimmy Fallon"
+// networks
+// : 
+// [{…}]
+// next_episode_to_air
+// : 
+// {id: 6324222, name: 'Episode #12.134', overview: '', vote_average: 0, vote_count: 0, …}
+// number_of_episodes
+// : 
+// 1579
+// number_of_seasons
+// : 
+// 12
 // origin_country
 // : 
 // ['US']
 // original_language
 // : 
 // "en"
-// original_title
+// original_name
 // : 
-// "Open"
+// "The Tonight Show Starring Jimmy Fallon"
 // overview
 // : 
-// "The perfect summer turns into a blood-soaked nightmare as counselors at an isolated camp are hunted by a killer and the truth behind the murders is darker than anyone imagined. If the killer doesn't get you, the drama definitely will."
+// "After Jay Leno's second retirement from the program, Jimmy Fallon stepped in as his permanent replacement. After 42 years in Los Angeles the program was brought back to New York."
 // popularity
 // : 
-// 92.3595
+// 631.9634
 // poster_path
 // : 
-// "/A7TXvimVRgGiKsviUopqPLr3fY1.jpg"
+// "/if7ECoH4xaYw5S8gomNIEmtwTxP.jpg"
 // production_companies
 // : 
-// [{…}]
+// (4) [{…}, {…}, {…}, {…}]
 // production_countries
 // : 
 // [{…}]
-// release_date
+// seasons
 // : 
-// "2025-06-14"
-// revenue
-// : 
-// 0
-// runtime
-// : 
-// 64
+// (12) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 // spoken_languages
 // : 
 // [{…}]
 // status
 // : 
-// "Released"
+// "Returning Series"
 // tagline
 // : 
-// "Camp Greenwich: Great pay, hot counselors, and a summer you’ll never forget… if you survive."
-// title
+// "Tonight's just getting started."
+// type
 // : 
-// "Open"
-// video
-// : 
-// false
+// "Talk Show"
 // vote_average
 // : 
-// 6.5
+// 5.86
 // vote_count
 // : 
-// 2
-
-
-
+// 342
+// [[Prototype]]
+// : 
+// Object
+// ﻿
 
 

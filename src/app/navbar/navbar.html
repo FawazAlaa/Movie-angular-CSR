@@ -10,7 +10,10 @@
         <p-dropdown [options]="languages" [(ngModel)]="selectedLanguage" optionLabel="label"
             (onChange)="changeLanguage($event.value)" [style]="{'width':'120px'}">
         </p-dropdown>
+              <a [routerLink]="['/watchlist']">
+          <button pButton label="Watchlist" class="p-button-text"></button>
+              </a>
 
-        <button pButton label="Watchlist" class="p-button-text" (click)="openWatchlist()"></button>
+      
     </div>
 </nav>

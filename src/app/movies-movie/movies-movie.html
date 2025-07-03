@@ -11,9 +11,24 @@
         <div class="overlay">
             <h2>{{movieShow()?.title }}</h2>
             <p class="overview">{{ movieShow()?.overview }}</p>
-            <p><strong>Rating:</strong> {{ movieShow()?.vote_average }} / 10</p>
+            <p class="text-yellow-500"><strong>Rating:</strong> {{ movieShow()?.vote_average }} / 10</p>
             <p><strong>Reviews:</strong> {{ movieShow()?.vote_count }}</p>
             <p><strong>Release:</strong> {{ movieShow()?.release_date }}</p>
         </div>
+    </div>
+    <div>
+        <p>{{movieShow()?.title }}</p>
+
+        <ng-container *ngIf="movieShow() as movie">
+            <div class="flex justify-between items-center w-full">
+                <p class="mr-4">{{ movie.release_date }}</p>
+
+                <button type="button" class="heart-button"
+                    (click)="watchListItem.checkMovieWatchlist(movie) ? watchListItem.removeFromMovieWatchlist(movie) : watchListItem.addToMovieWatchlist(movie)">
+                    <i
+                        [ngClass]="watchListItem.checkMovieWatchlist(movie) ? 'pi pi-heart-fill text-yellow-500 text-xl' : 'pi pi-heart text-yellow-500 text-xl'"></i>
+                </button>
+            </div>
+        </ng-container>
     </div>
 </p-card>

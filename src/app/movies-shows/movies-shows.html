@@ -7,11 +7,27 @@
     </a>
     <!-- Hover Overlay -->
     <div class="overlay">
-      <h2>{{seriesShow()?.title }}</h2>
+      <h2>{{seriesShow()?.name }}</h2>
       <p class="overview">{{seriesShow()?.overview }}</p>
-      <p><strong>Rating:</strong> {{seriesShow()?.vote_average }} / 10</p>
+      <p class="text-yellow-500"><strong>Rating:</strong> {{seriesShow()?.vote_average }} / 10</p>
       <p><strong>Reviews:</strong> {{seriesShow()?.vote_count }}</p>
-      <p><strong>Release:</strong> {{seriesShow()?.release_date }}</p>
+      <p><strong>Release:</strong> {{seriesShow()?.first_air_date}}</p>
+       <p><strong>Release:</strong> {{seriesShow()?.last_air_date }}</p>
     </div>
   </div>
+   <div>
+        <p>{{seriesShow()?.name }}</p>
+
+        <ng-container *ngIf="seriesShow() as show">
+            <div class="flex justify-between items-center w-full">
+                <p class="mr-4">{{show.first_air_date}}</p>
+
+                <button type="button" class="heart-button"
+                    (click)="watchListItem.checkShowWatchlist(show) ? watchListItem.removeFromShowWatchlist(show) : watchListItem.addToShowWatchlist(show)">
+                    <i
+                        [ngClass]="watchListItem.checkShowWatchlist(show) ? 'pi pi-heart-fill text-yellow-500 text-xl' : 'pi pi-heart text-yellow-500 text-xl'"></i>
+                </button>
+            </div>
+        </ng-container>
+    </div>
 </p-card>

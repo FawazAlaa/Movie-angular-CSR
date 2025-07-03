@@ -2,7 +2,7 @@
     <div class="p-grid p-align-start p-justify-center">
         <!-- Movie Poster -->
         <div class="p-col-12 p-md-4 text-center">
-            <img [src]="`https://image.tmdb.org/t/p/w500/${singleMovie().poster_path}`" alt="Black Widow"
+            <img [src]="`https://image.tmdb.org/t/p/w500/${singleMovie().poster_path}`" [alt]="singleMovie().title"
                 class="movie-poster" />
         </div>
         <!-- <h2>{{movieShow()?.title }}</h2>
@@ -19,6 +19,7 @@
                     <p class="text-muted text-sm"><strong>Release Date: </strong>{{singleMovie().release_date}}</p>
                     <!-- Rating -->
                     <div class="flex align-items-center gap-2 mb-2">
+                     <p class="text-yellow-500">Rating: {{singleMovie().vote_average}}/10</p>
 
                     </div>
                 </div>

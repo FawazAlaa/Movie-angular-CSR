@@ -8,12 +8,13 @@ import { ButtonModule } from 'primeng/button';
 import { Showshttp } from '../showshttp';
 import { MoviesShows } from "../movies-shows/movies-shows";
 import { MovieInterface } from '../movie-interface';
+import { RouterModule } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-movies',
-  imports: [CarouselModule, CommonModule, MoviesMovie, ButtonModule, MoviesShows],
+  imports: [CarouselModule, CommonModule, MoviesMovie, ButtonModule, MoviesShows,RouterModule],
   templateUrl: './movies.html',
   styleUrl: './movies.scss'
 })
