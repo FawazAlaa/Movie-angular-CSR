@@ -1,14 +1,15 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { SingleMoviehttp } from '../single-moviehttp';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import {RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RatingModule } from 'primeng/rating';
 import { MovieInterface } from '../movie-interface';
+import { watchlistStore } from '../store/watchlistStore';
 
 @Component({
   selector: 'app-single-movie',
-  imports: [RouterModule,RatingModule],
+  imports: [RouterModule,RatingModule,CommonModule],
   templateUrl: './single-movie.html',
   styleUrl: './single-movie.scss'
 })
@@ -17,6 +18,7 @@ export class SingleMovie {
   singleMovieCall=inject(SingleMoviehttp);
   readonly id=input<number>();
   singleMovie=signal<MovieInterface>({} as MovieInterface);
+  watchListItem = inject(watchlistStore);
 
   ngOnInit(): void {
     const movieId = this.id();

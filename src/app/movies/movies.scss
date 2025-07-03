@@ -1,3 +1,60 @@
 .movie-card-wrapper {
   max-width: 220px;
 }
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  // This centers the hero-section and text
+  text-align: center;
+}
+
+
+
+ .hero-section {
+  margin: 2rem auto;      // Auto horizontal margins center it
+  border-radius: 5px;
+  background-color:transparent;  // Optional: light grey if you prefer
+}
+  .hero-content {
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #555555;
+      margin-bottom: 2rem;
+    }
+
+    .hero-search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;  // Makes it responsive on small screens
+
+      .hero-input {
+        flex: 1 1 400px; // Grow but don't exceed a readable width
+        max-width: 600px;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        background-color:transparent;
+
+      }
+
+      .hero-button {
+        padding: 0.75rem 2rem;
+        font-weight: 500;
+      }
+    }
+  }
+

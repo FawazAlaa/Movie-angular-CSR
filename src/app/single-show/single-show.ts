@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RatingModule } from 'primeng/rating';
 import { MovieInterface } from '../movie-interface';
 import { SingleShowhttp } from '../single-showhttp';
+import { watchlistStore } from '../store/watchlistStore';
 
 @Component({
   selector: 'app-single-show',
@@ -18,6 +19,8 @@ export class SingleShow {
   singleShowCall=inject(SingleShowhttp);
   readonly id=input<number>();
   singleShow=signal<MovieInterface>({} as MovieInterface);
+    watchListItem = inject(watchlistStore);
+  
 
   ngOnInit(): void {
     const movieId = this.id();

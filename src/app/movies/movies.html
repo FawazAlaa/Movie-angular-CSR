@@ -3,13 +3,29 @@
     <div class="carousel-container">
         <div class="text-content text-center">
             <h1 class="mb-4">Welcome to FawazFlex</h1>
-            <h2>What's New?</h2>
+            <h2>Check What's New?</h2>
+
+        </div>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h2>or you can search for yourself?</h2>
+                <p class="hero-subtitle">Millions of movies, TV shows and people to discover. Explore now.</p>
+                <div class="hero-search">
+                    <input type="text" pInputText placeholder="Search and explore..." [value]="searchterm()"
+                         (input)="onSearchInput($event)" class="hero-input" />
+
+                    <a [routerLink]="['/searchresult', searchterm() || 'default']"
+                     class="p-button p-button-warning p-button-rounded hero-button">
+                        Search
+                </a>
+                </div>
+            </div>
         </div>
 
         <p-carousel [value]="carouselMovies()" [numVisible]="5" [numScroll]="1" [autoplayInterval]="4000">
             <ng-template pTemplate="item" let-movie>
                 <div class="movie-card pr-3">
-                    <a [routerLink]="['/single-movie', movie.id]"> 
+                    <a [routerLink]="['/single-movie', movie.id]">
                         <img [src]="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
                             alt="{{ movie.title }}" /></a>
 
@@ -96,4 +112,11 @@
     </div>
 
     }
+</section>
+
+<section class="text-center mt-4" *ngIf="selectedType === 'movies' && totalPages > 1">
+    <p-paginator [rows]="moviesPerPage" [totalRecords]="totalPages * moviesPerPage"
+        [rowsPerPageOptions]="[moviesPerPage]" [pageLinkSize]="4" (onPageChange)="onPageChange($event)"
+        styleClass="custom-paginator">
+    </p-paginator>
 </section>

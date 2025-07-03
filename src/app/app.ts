@@ -5,7 +5,7 @@ import { Movies } from "./movies/movies";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Movies],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

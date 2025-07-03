@@ -1,0 +1,67 @@
+<section class="search-section p-4">
+  <h2 class="text-center mb-4">Search Results</h2>
+
+  <div class="p-grid search-grid">
+    @for (result of singleSearch(); track result.id) {
+    <div class="p-col-12 sm:p-col-6 md:p-col-4 lg:p-col-3">
+      <div class="search-card p-card p-3">
+
+        <!-- Poster -->
+        <div class="poster-wrapper text-center mb-3">
+          <a [routerLink]="['/single-movie', result.id]">
+            <img class="poster-img" [src]="'https://image.tmdb.org/t/p/w500/' +result.poster_path"
+              alt="{{ result?.title }}" loading="lazy" />
+          </a>
+
+
+        </div>
+
+        <!-- Title + Heart -->
+        <div class="flex justify-content-between align-items-center mb-2">
+          <h3 class="m-0 text-lg font-semibold">{{ result.title }}</h3>
+          <button type="button" pButton icon="pi pi-heart" class="p-button-text p-button-rounded p-button-sm"></button>
+        </div>
+
+        <!-- Overview -->
+        <p class="search-overview mb-2">
+          {{ result.overview }}
+        </p>
+
+        <!-- Genres -->
+        <div class="tags flex flex-wrap gap-2 mb-2">
+          @for (genre of result.genres; track genre.id) {
+          <span class="p-tag p-tag-rounded p-tag-warning">{{ genre.name }}</span>
+          }
+        </div>
+
+        <!-- Info -->
+        <div class="info text-sm text-muted mb-2">
+          <p><strong>Release:</strong> {{ result.release_date }}</p>
+          <p><strong>Duration:</strong> {{ result.runtime }} min</p>
+
+          @if (result.original_language === 'en') {
+          <p><strong>Language:</strong> English</p>
+          } @else if (result.original_language === 'fr') {
+          <p><strong>Language:</strong> French</p>
+          } @else if (result.original_language === 'es') {
+          <p><strong>Language:</strong> Spanish</p>
+          }
+        </div>
+
+        <!-- Companies -->
+        <div class="logos flex flex-wrap gap-2 align-items-center">
+          @for (company of result.production_companies; track company.id) {
+          @if (company.logo_path) {
+          <img [src]="'https://image.tmdb.org/t/p/w200/' + company.logo_path" [alt]="company.name"
+            class="company-logo" />
+          } @else {
+          <span class="company-name text-xs text-muted">{{ company.name }}</span>
+          }
+          }
+        </div>
+
+      </div>
+    </div>
+    }
+  </div>
+</section>

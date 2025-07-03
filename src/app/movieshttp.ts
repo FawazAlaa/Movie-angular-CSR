@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, numberAttribute } from '@angular/core';
 
 
 @Injectable({
@@ -11,8 +11,8 @@ export class Movieshttp {
   // This service can be used to make HTTP requests related to movies
   private httpcall=inject(HttpClient);
 
-  getMovies(type: string = 'popular') {
-    return this.httpcall.get(`https://api.themoviedb.org/3/movie/${type}?api_key=YOUR_API_KEY&language=en-US&page=1`);
+  getMovies(type: string = 'popular',pageNumber: number = 1 ) {
+    return this.httpcall.get(`https://api.themoviedb.org/3/movie/${type}?api_key=YOUR_API_KEY&language=en-US&page=${pageNumber}`); // Replace YOUR_API_KEY with your actual API key
   }
 
 }
