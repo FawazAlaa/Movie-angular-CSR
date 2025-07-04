@@ -19,6 +19,8 @@ export class SingleShow {
   singleShowCall=inject(SingleShowhttp);
   readonly id=input<number>();
   singleShow=signal<MovieInterface>({} as MovieInterface);
+  singleShowReviews=signal<any>({})
+  singleShowReccomend=signal<any>({})
     watchListItem = inject(watchlistStore);
   
 
@@ -27,6 +29,16 @@ export class SingleShow {
     if (movieId !== undefined) {
       this.singleData$ = this.singleShowCall.getSingleShow(movieId).subscribe((data: any) => {
         this.singleShow.set(data);
+        console.log(movieId, data);
+      });
+      this.singleData$ = this.singleShowCall.getSingleShowReviews(movieId).subscribe((data: any) => {
+        this.singleShowReviews.set(data);
+        console.log(movieId, data);
+      });
+    
+   
+      this.singleData$ = this.singleShowCall.getSingleShowRecommend(movieId).subscribe((data: any) => {
+        this.singleShowReccomend.set(data);
         console.log(movieId, data);
       });
     }

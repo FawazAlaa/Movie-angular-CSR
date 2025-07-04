@@ -10,4 +10,11 @@ export class SingleMoviehttp {
   getSingleMovie(id:number) {
     return this.singlehttp.get(`https://api.themoviedb.org/3/movie/${id}`);
   }
+
+    getSingleMovieReviews(id:number) {
+    return this.singlehttp.get(`https://api.themoviedb.org/3/movie/${id}/reviews`);
+  }
+    getSingleMovieRecommend(id:number) {
+    return this.singlehttp.get(`https://api.themoviedb.org/3/movie/${id}/recommendations`);
+  }
 }

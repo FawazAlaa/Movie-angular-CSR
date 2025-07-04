@@ -18,6 +18,9 @@ export class SingleMovie {
   singleMovieCall=inject(SingleMoviehttp);
   readonly id=input<number>();
   singleMovie=signal<MovieInterface>({} as MovieInterface);
+  singleMovieReviews=signal<any>({})
+  singleMovieReccomend=signal<any>({})
+
   watchListItem = inject(watchlistStore);
 
   ngOnInit(): void {
@@ -27,7 +30,21 @@ export class SingleMovie {
         this.singleMovie.set(data);
         console.log(movieId, data);
       });
+    
+  
+      this.singleData$ = this.singleMovieCall.getSingleMovieReviews(movieId).subscribe((data: any) => {
+        this.singleMovieReviews.set(data);
+        console.log(movieId, data);
+      });
+    
+   
+      this.singleData$ = this.singleMovieCall.getSingleMovieRecommend(movieId).subscribe((data: any) => {
+        this.singleMovieReccomend.set(data);
+        console.log(movieId, data);
+      });
     }
+    
+
   }
 
   //   data$!:Subscription;

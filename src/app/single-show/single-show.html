@@ -98,4 +98,39 @@
             <a pButton icon="pi pi-globe" label="Website" class="p-button-sm p-button-outlined"></a>
         </div>
     </div>
+      <!-- Reviews -->
+    <div class="reviews mt-5">
+        <h3 class="mb-3">Reviews</h3>
+
+        <div class="review-cards flex flex-wrap gap-4">            
+            @for (review of singleShowReviews().results; track review.id) {
+            <div class="review-card p-3 border-round shadow-sm w-12 sm:w-8 md:w-5 lg:w-4">
+                <h4 class="m-0 mb-2 text-sm font-semibold">{{ review.author }}</h4>
+                <p class="text-xs text-muted mb-2 line-clamp-4">{{ review.content }}</p>
+                <p class="text-right text-xs italic">— {{ review.author_details.username || review.author }}</p>
+            </div>
+            }
+        </div>
+        <!-- This here can route good if i used snapshot eng muhand told me about -->
+    </div>
+
+
+    <!-- Recommended -->
+    <div class="reccomends mt-5">
+        <h3 class="mb-3">Recommended Shows</h3>
+
+        <div class="recommended-movies flex flex-wrap gap-4">
+            @for (rec of singleShowReccomend().results; track rec.id) {
+            <div class="recommended-card p-3 border-round shadow-sm w-12 sm:w-5 md:w-3 lg:w-2">
+                 <a [routerLink]="['/single-movie', rec.id]">
+            <img class="recommended-poster mb-2 w-full border-round" [src]="'https://image.tmdb.org/t/p/w500/' + rec.poster_path"
+                alt="{{ rec.name }}" loading="lazy" />
+        </a>
+                <h4 class="m-0 text-sm">{{ rec.name }}</h4>
+                <p class="text-xs text-muted mt-1 line-clamp-3">{{ rec.overview }}</p>
+            </div>
+            }
+        </div>
+    </div>
 </div>
+  

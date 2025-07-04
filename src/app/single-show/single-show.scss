@@ -109,4 +109,63 @@
     transform: scale(1.2);
   }
 }
+.review-cards {
+  justify-content: flex-start;
+}
 
+.review-card {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 0.75rem;
+    max-height: 6em;
+    overflow: hidden;
+  }
+}
+.recommended-movies {
+  justify-content: flex-start;
+}
+
+.recommended-card {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .recommended-poster {
+    object-fit: cover;
+    height: 240px;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.75rem;
+    max-height: 4.5em;
+    overflow: hidden;
+  }
+}

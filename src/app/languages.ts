@@ -4,8 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class Languages {
-
-    selectedLanguage = signal<string>('en-US'); // Default language
+  private selectedLanguage = signal<string>('en');
 
   setLanguage(lang: string) {
     this.selectedLanguage.set(lang);
@@ -13,5 +12,9 @@ export class Languages {
 
   getLanguage() {
     return this.selectedLanguage();
+  }
+
+  languageSignal() {
+    return this.selectedLanguage;
   }
 }

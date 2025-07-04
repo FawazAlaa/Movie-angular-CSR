@@ -16,7 +16,9 @@ import { Languages } from '../languages';
   styleUrl: './navbar.scss'
 })
 export class Navbar {
-  private languageService = inject(Languages);
+languageService = inject(Languages);
+  selectedLanguage = this.languageService.getLanguage();
+
 
 
   isScrolled = false;
@@ -25,21 +27,15 @@ export class Navbar {
   onWindowScroll() {
     this.isScrolled = window.scrollY > 10;
   }
-
   languages = [
-    { label: 'English', value: 'en-US' },
-    { label: 'العربية', value: 'ar-EG' },
-    { label: 'Français', value: 'fr-FR' },
-    { label: '中文', value: 'zh-CN' }
+    { label: 'English', value: 'en' },
+    { label: 'العربية', value: 'ar' },
+    { label: 'Français', value: 'fr' },
+    { label: '中文', value: 'zh' }
   ];
 
-  selectedLanguage = this.languages[0];
-
-  changeLanguage(lang: any) {
-    this.selectedLanguage = lang;
-    this.languageService.setLanguage(lang.value);
+  ngOnInit(): void {
+    this.languageService.setLanguage(this.selectedLanguage); 
   }
-
-
 
 }
